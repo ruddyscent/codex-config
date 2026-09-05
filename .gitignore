@@ -1,0 +1,195 @@
+# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,linux,vim,visualstudiocode,video,images,audio
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,linux,vim,visualstudiocode,video,images,audio
+
+### Audio
+*.aif
+*.iff
+*.m3u
+*.m4a
+*.mid
+*.mp3
+*.mpa
+*.ra
+*.wav
+*.wma
+*.ogg
+*.flac
+
+### Images
+# JPEG
+*.jpg
+*.jpeg
+*.jpe
+*.jif
+*.jfif
+*.jfi
+# JPEG 2000
+*.jp2
+*.j2k
+*.jpf
+*.jpx
+*.jpm
+*.mj2
+# JPEG XR
+*.jxr
+*.hdp
+*.wdp
+# Graphics Interchange Format
+*.gif
+# RAW
+*.raw
+# Web P
+*.webp
+# Portable Network Graphics
+*.png
+# Animated Portable Network Graphics
+*.apng
+# Multiple-image Network Graphics
+*.mng
+# Tagged Image File Format
+*.tiff
+*.tif
+# Scalable Vector Graphics
+*.svg
+*.svgz
+# Portable Document Format
+*.pdf
+# X BitMap
+*.xbm
+# BMP
+*.bmp
+*.dib
+# ICO
+*.ico
+# 3D Images
+*.3dm
+*.max
+
+### Linux
+*~
+# Temporary files held open after deletion
+.fuse_hidden*
+# KDE directory preferences
+.directory
+# Linux trash folders
+.Trash-*
+# Removed files still being accessed over NFS
+.nfs*
+
+### macOS
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+# Icon filename ends with carriage returns
+Icon[]
+# Thumbnails
+._*
+# Files at the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+# Remote AFP shares
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### macOS Patch
+*.icloud
+
+### Video
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.avi
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpg
+*.ogv
+*.rm
+*.swf
+*.vob
+*.wmv
+*.webm
+
+### Vim
+# Swap
+[._]*.s[a-v][a-z]
+# Keep SVG files ignored under the Images rules above.
+# !*.svg
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+# Session
+Session.vim
+Sessionx.vim
+# Temporary
+.netrwhist
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+### VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+# Local History
+.history/
+# Built extensions
+*.vsix
+
+### VisualStudioCode Patch
+.history
+.ionide
+
+### Windows
+# Thumbnail cache
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+# Dump files
+*.stackdump
+# Folder configuration
+[Dd]esktop.ini
+# Recycle Bin on file shares
+$RECYCLE.BIN/
+# Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+# Shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,vim,visualstudiocode,video,images,audio
+
+# Only reviewed configuration files are eligible for version control.
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/AGENTS.md
+!/skills/
+/skills/*
+!/skills/open-source-orchestrator/
+/skills/open-source-orchestrator/*
+!/skills/open-source-orchestrator/SKILL.md
+!/skills/open-source-orchestrator/references/
+/skills/open-source-orchestrator/references/*
+!/skills/open-source-orchestrator/references/herdr.md
