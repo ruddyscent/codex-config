@@ -147,18 +147,10 @@ These instructions apply to all projects unless a repository-level
 
 ### Development Branch Workflow
 
-- If a repository-level `AGENTS.md` or other applicable project instruction
-  defines a development or commit workflow, follow the project instruction
-  instead of this global workflow and do not apply the conflicting parts of
-  this section.
-- For projects hosted on GitHub, if a commit is authorized while the current
-  branch is `master`, create a relevant GitHub issue before committing.
-- Create and check out a dedicated working branch from `master` before the
-  commit. Register that branch as the issue's development branch, using GitHub's
-  linked development branch mechanism when available.
-- Complete these steps in order: create the issue, create and link the working
-  branch, check out the working branch, and then commit.
-- Do not commit the task changes directly to `master`.
+- For GitHub projects, read and follow the Development Branch Workflow section
+  in `open-source-orchestrator/SKILL.md` before an authorized commit from
+  `master`. This reference also applies outside open-source issue and PR work;
+  in that case, read only that section without activating the management workflow.
 
 ## Dependencies
 

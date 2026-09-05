@@ -25,7 +25,7 @@ description: Coordinate open-source issue handling and pull request reviews thro
 - Create a dedicated Git worktree for the issue or PR before substantive
   repository work, using the relevant base or PR revision. Reuse that task's
   worktree on follow-up turns. Preserve the original checkout and user changes,
-  and follow the applicable development branch and commit workflow.
+  and follow the applicable development branch and commit workflow below.
 - For PR reviews, record the exact base and head commit SHAs and review that
   revision pair. Before reporting completion, check whether either revision
   has changed. If so, delegate review of the affected changes and rerun relevant
@@ -66,3 +66,19 @@ description: Coordinate open-source issue handling and pull request reviews thro
   not discard work or remove worktrees merely because a subtask has finished.
 - This workflow does not authorize commits, pushes, issue or PR publication,
   merges, or destructive operations beyond the user's existing authorization.
+
+## Development Branch Workflow
+
+- If a repository-level `AGENTS.md` or other applicable project instruction
+  defines a development or commit workflow, follow the project instruction
+  instead of this global workflow and do not apply the conflicting parts of
+  this section.
+- For projects hosted on GitHub, if a commit is authorized while the current
+  branch is `master`, create a relevant GitHub issue before committing.
+- Create a dedicated working branch from `master` and check it out in the
+  task worktree before the commit. Preserve the original checkout. Register
+  that branch as the issue's development branch, using GitHub's linked
+  development branch mechanism when available.
+- Complete these steps in order: create the issue, create and link the working
+  branch, check out the working branch in the task worktree, and then commit.
+- Do not commit the task changes directly to `master`.
