@@ -82,8 +82,7 @@
 .AppleDouble
 .LSOverride
 # Icon filename ends with carriage returns
-Icon[
-]
+Icon[]
 # Thumbnails
 ._*
 # Files at the root of a volume
