@@ -53,6 +53,12 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
   has changed. If so, delegate review of the affected changes and rerun relevant
   verification, stating which revision pair the final findings cover. If the
   latest PR state cannot be checked, disclose that limitation.
+- Before assigning PR reviewers, classify risk from the changed semantics and
+  affected consumers, not patch size or the author's stated fix alone. Apply
+  the High-Risk PR Review procedure below when changes affect compiler IR,
+  aliasing/mutation, concurrency, memory lifetime, public contracts, or multiple
+  execution backends where a small change can silently alter results. Do not
+  wait for a discovered failure to trigger stronger review.
 - The management session owns scoping, decomposition, delegation, coordination,
   assessment of returned evidence, and the final response. Delegate detailed
   investigation, implementation, review, and test execution to worker agents
@@ -103,6 +109,45 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
   not discard work or remove worktrees merely because a subtask has finished.
 - This workflow does not authorize commits, pushes, issue or PR publication,
   merges, or destructive operations beyond the user's existing authorization.
+
+## High-Risk PR Review
+
+- Keep the manager on Sol / high by default. Assign a semantic and contract
+  reviewer using GPT-6 Astra (`gpt-6-astra`) with at least `high` reasoning;
+  choose a higher supported effort when the complexity warrants it. If that
+  capability is unavailable, report the unmet review requirement and required
+  action instead of silently substituting a weaker review or claiming completion.
+- Assign a separate reviewer to search independently for counterexamples.
+  Provide the same base/head revisions, requirements, source, and build context,
+  but withhold the first reviewer's findings and verdict until both initial
+  assessments are recorded. Use a fresh worker conversation to avoid inherited
+  conclusions. Select a model capable of the task; two agents are not independent
+  evidence merely because they run in separate panes.
+- The semantic reviewer must check the public contract and invariants, trace
+  changed values and metadata to their affected consumers, and distinguish
+  requirements that different consumers impose. Treat added tests as proposed
+  behavior to assess against the contract, not as the definition of correctness.
+- The counterexample reviewer must inspect adjacent supported and rejected cases
+  and affected execution paths beyond the author's reproducer. Select relevant
+  dimensions such as aliasing, mutation target, zero or multiple iterations,
+  repeated calls, dynamic/static modes, and alternate wrappers or backends.
+  Derive this matrix from the change rather than running every combination.
+- Delegate execution of focused checks on the exact head and, for suspected
+  regressions, the base under comparable conditions. Verify the original fix
+  and meaningful adjacent cases. Distinguish new regressions, pre-existing bugs,
+  intentional contract changes, and unverified hypotheses. Do not label code
+  reading or the author's test report as independently reproduced evidence.
+- Require handoffs to state the reviewed contracts and paths, exact revisions,
+  executed checks and results, unexecuted checks and reasons, counterexample
+  candidates, and how each candidate was resolved. Preserve these details when
+  summarizing; a short "no issues found" verdict is insufficient.
+- After independent assessments, reconcile disagreements using concrete evidence
+  and targeted verification rather than majority vote. If relevant builds,
+  backends, or tests are unavailable, complete the useful static review and mark
+  the review incomplete with its specific coverage gaps. Do not issue an
+  unqualified approval while material findings or verification gaps remain.
+  Stronger models and passing tests reduce uncertainty but do not guarantee
+  that the PR is correct. Existing approval/publication authorization still applies.
 
 ## Development Branch Workflow
 

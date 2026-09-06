@@ -41,6 +41,12 @@ failures, recording the reason and returning to the default when resolved.
 Evaluate cheaper settings through comparable trials rather than changing models
 on every turn. Keep handoffs concise and avoid repeatedly loading full logs.
 
+High-risk PRs receive proactive semantic/contract review with Astra at high
+reasoning or above, a separate independent counterexample review, and focused
+execution checks. The manager remains Sol/high. Reviewers must report exact
+revisions, coverage, evidence, and missing verification; material gaps prevent
+an unqualified approval. See the skill's High-Risk PR Review procedure.
+
 Each task has one active manager. The initial session may manage or hand off to
 an appropriately configured fresh session. Transfer goals, constraints, approval
 scope, worktrees, results, pending decisions, and the worker roster before the
