@@ -1,6 +1,7 @@
 # herdr Pane Operations
 
-Read this reference when the management session runs in herdr.
+Read this reference only when the management session is Codex CLI running
+inside a herdr pane. herdr usage alone does not establish that the agent is CLI.
 
 - When the management session runs in herdr, run each concurrent worker in a
   separate pane. Track each pane's task and state. After a worker finishes,

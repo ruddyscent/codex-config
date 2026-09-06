@@ -133,8 +133,14 @@ These instructions apply to all projects unless a repository-level
 
 ### Open-Source Issue and PR Orchestration
 
-- When handling issues or reviewing pull requests in open-source projects,
-  the primary user-facing session must load and follow the
+- Apply the orchestration rules in this section only in Codex CLI when handling
+  issues or reviewing pull requests in open-source projects. Verify the host
+  from explicit runtime context; shell access alone does not establish CLI use.
+  Do not activate this workflow in the Codex desktop app, IDE extensions, or
+  other hosts. If the host is unknown, explain the uncertainty and do not
+  activate the workflow automatically. This host restriction does not change
+  the separate Development Branch Workflow instructions below.
+- Within that scope, the primary user-facing session must load and follow the
   `open-source-orchestrator` skill before substantive work. If it is not listed,
   check `~/.codex/skills/open-source-orchestrator/SKILL.md`. If unavailable,
   report the missing dependency rather than silently skipping the workflow.

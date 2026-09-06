@@ -1,12 +1,19 @@
 ---
 name: open-source-orchestrator
-description: Coordinate open-source issue handling and pull request reviews through delegated workers, isolated worktrees, and task-appropriate model settings. Use for the primary management session on those tasks; not for general coding, workflow advice, or editing this skill. Assigned workers execute their tasks directly without recursively applying management requirements.
+description: Use only in Codex CLI to coordinate open-source issue handling and pull request reviews through delegated workers, isolated worktrees, and task-appropriate model settings. Use for the primary management session on those tasks; not for general coding, workflow advice, or editing this skill. Assigned workers execute their tasks directly without recursively applying management requirements.
 ---
 
 # Open-Source Issue and PR Orchestration
 
-- Apply this workflow when handling issues or reviewing pull requests in
-  open-source projects.
+- Apply the orchestration workflow only in Codex CLI when handling issues or
+  reviewing pull requests in open-source projects. Verify the execution host
+  from explicit runtime context; access to shell tools is not proof of CLI use.
+  Do not activate orchestration in the Codex desktop app, IDE extensions, or
+  other hosts. If the host cannot be determined, explain the uncertainty and
+  do not activate orchestration automatically.
+- This host restriction applies to orchestration, not to a separately referenced
+  Development Branch Workflow section. Reading that section outside Codex CLI
+  must not activate the manager, delegation, or model-selection requirements.
 - The management role, mandatory delegation, and highest-model/maximum-effort
   requirements apply only to the original user-facing session. Worker agents
   must perform their assigned work directly using their assigned settings;
