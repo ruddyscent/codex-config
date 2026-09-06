@@ -11,6 +11,13 @@ or its account data.
 - `skills/open-source-orchestrator/references/herdr.md`: conditional herdr pane
   instructions, loaded only for Codex CLI running in herdr.
 
+The skill loads `references/review-process.md` for PR reviews and
+`references/pytorch-review.md` only for applicable PyTorch reviews. The common
+process adds caller/contract investigation, candidate deduplication, and separate
+fact-checking; PyTorch guidance is read from the reviewed repository revision
+rather than copied into this configuration. Preserve the entire references
+folder when installing or updating the skill.
+
 ## Apply to another account
 
 1. Locate the destination Codex home (`CODEX_HOME` when configured; otherwise
@@ -41,6 +48,12 @@ failures, recording the reason and returning to the default when resolved.
 Evaluate cheaper settings through comparable trials rather than changing models
 on every turn. Keep handoffs concise and avoid repeatedly loading full logs.
 
+High-risk PRs receive proactive semantic/contract review with Astra at high
+reasoning or above, a separate independent counterexample review, and focused
+execution checks. The manager remains Sol/high. Reviewers must report exact
+revisions, coverage, evidence, and missing verification; material gaps prevent
+an unqualified approval. See the skill's High-Risk PR Review procedure.
+
 Each task has one active manager. The initial session may manage or hand off to
 an appropriately configured fresh session. Transfer goals, constraints, approval
 scope, worktrees, results, pending decisions, and the worker roster before the
@@ -55,7 +68,8 @@ command. Verify actual model and reasoning settings on each host.
 
 ## Privacy and version control
 
-The ignore file allows the five reviewed configuration files and a root `LICENSE`.
+The ignore file allows only the explicitly listed configuration, reference,
+documentation, and license files.
 Explicitly extend that list when adding intentional content. Never force-add
 account data to bypass these exclusions.
 
