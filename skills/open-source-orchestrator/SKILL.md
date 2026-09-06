@@ -53,6 +53,10 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
   has changed. If so, delegate review of the affected changes and rerun relevant
   verification, stating which revision pair the final findings cover. If the
   latest PR state cannot be checked, disclose that limitation.
+- For PR reviews, read [the common review process](references/review-process.md)
+  and delegate its context, consolidation, and fact-checking steps. For PyTorch
+  reviews only, also read [PyTorch review context](references/pytorch-review.md).
+  These references supplement the high-risk requirements below.
 - Before assigning PR reviewers, classify risk from the changed semantics and
   affected consumers, not patch size or the author's stated fix alone. Apply
   the High-Risk PR Review procedure below when changes affect compiler IR,

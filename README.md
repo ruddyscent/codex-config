@@ -11,6 +11,13 @@ or its account data.
 - `skills/open-source-orchestrator/references/herdr.md`: conditional herdr pane
   instructions, loaded only for Codex CLI running in herdr.
 
+The skill loads `references/review-process.md` for PR reviews and
+`references/pytorch-review.md` only for applicable PyTorch reviews. The common
+process adds caller/contract investigation, candidate deduplication, and separate
+fact-checking; PyTorch guidance is read from the reviewed repository revision
+rather than copied into this configuration. Preserve the entire references
+folder when installing or updating the skill.
+
 ## Apply to another account
 
 1. Locate the destination Codex home (`CODEX_HOME` when configured; otherwise
@@ -61,7 +68,8 @@ command. Verify actual model and reasoning settings on each host.
 
 ## Privacy and version control
 
-The ignore file allows the five reviewed configuration files and a root `LICENSE`.
+The ignore file allows only the explicitly listed configuration, reference,
+documentation, and license files.
 Explicitly extend that list when adding intentional content. Never force-add
 account data to bypass these exclusions.
 

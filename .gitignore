@@ -82,7 +82,8 @@
 .AppleDouble
 .LSOverride
 # Icon filename ends with carriage returns
-Icon[]
+Icon[
+]
 # Thumbnails
 ._*
 # Files at the root of a volume
@@ -193,3 +194,5 @@ $RECYCLE.BIN/
 !/skills/open-source-orchestrator/references/
 /skills/open-source-orchestrator/references/*
 !/skills/open-source-orchestrator/references/herdr.md
+!/skills/open-source-orchestrator/references/review-process.md
+!/skills/open-source-orchestrator/references/pytorch-review.md
