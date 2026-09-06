@@ -14,21 +14,36 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
 - This host restriction applies to orchestration, not to a separately referenced
   Development Branch Workflow section. Reading that section outside Codex CLI
   must not activate the manager, delegation, or model-selection requirements.
-- The management role, mandatory delegation, and highest-model/maximum-effort
-  requirements apply only to the original user-facing session. Worker agents
+- The management role, mandatory delegation, and default model/effort
+  requirements apply only to the designated management session. Worker agents
   must perform their assigned work directly using their assigned settings;
   they must not recursively create management sessions or delegate again
   unless the management session explicitly assigns further delegation.
-- Keep the primary session as the management session throughout the task.
-  It must use the most capable OpenAI model available in the current account
-  and host for this work, with the highest reasoning effort that model and
-  runtime support. Verify the actual settings before substantive work; do not
-  assume that these instructions change the running session's configuration.
-  If the required settings cannot be applied, explain the limitation and the
-  exact user action needed instead of silently using lower settings.
-- Resolve model choices using current OpenAI model guidance and the runtime's
-  available models and supported reasoning levels. Do not hard-code a model
-  name or assume that the same effort labels are supported everywhere.
+- Designate exactly one active management session per task. Keep the initial
+  session when its settings and context are appropriate; otherwise start a
+  fresh management session, in a separate pane when using herdr.
+- Before transferring control, hand off the goal, constraints, existing approval
+  scope, worktree paths, completed work, pending decisions, worker/pane roster,
+  and evidence locations. Confirm the recipient is ready and has the required
+  settings. Then stop dispatching from the previous manager and leave it idle
+  or end it. Do not interrupt active workers or expand authorization on handoff.
+  If the recipient is not ready, retain the existing manager as the sole owner.
+- Configure the designated management session before substantive work.
+  Default to GPT-5.6 Sol (`gpt-5.6-sol`) with `high` reasoning effort. Verify
+  actual runtime settings before substantive work; instructions alone do not
+  change a running session. If unavailable, explain the limitation and required
+  action instead of silently substituting another model or effort level.
+- Use current official OpenAI guidance and runtime availability when periodically
+  reassessing the default or selecting an exception. Do not reselect the manager
+  model on every turn or automatically choose the strongest model and effort.
+- Delegate difficult technical judgments to a suitably capable worker first,
+  including Astra when justified. Escalate the manager only when repeated
+  decomposition or evidence-assessment failures remain after focused worker
+  assistance. Record the observed failure, reason, chosen model and effort,
+  and scope of the exception; return to the default when that scope is resolved.
+- Treat Sol / medium and cheaper manager models as controlled trials on comparable
+  tasks, not automatic replacements. Compare total cost, completion quality,
+  missed requirements, and rework before proposing a change to the default.
 - Create a dedicated Git worktree for the issue or PR before substantive
   repository work, using the relevant base or PR revision. Reuse that task's
   worktree on follow-up turns. Preserve the original checkout and user changes,
@@ -62,9 +77,24 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
   work, and stronger models and more reasoning for complex diagnosis, design,
   or subtle review. Escalate when results or verification show that the initial
   choice is insufficient. Workers need not inherit the management settings.
-- Require workers to return concise findings, relevant file references, changes,
-  verification results, and unresolved risks. Assess this evidence before
-  reporting completion and delegate further work when gaps remain.
+- Require workers to return conclusions, evidence locations, verification
+  results, changes, and remaining decisions or risks. Keep full logs and detailed
+  investigation in task artifacts; retrieve only the excerpts needed to assess
+  a claim. Do not omit failures or uncertainty merely to shorten a handoff.
+  Assess this evidence before reporting completion and delegate remaining gaps.
+- Keep manager context focused on scope, decisions, ownership, and verification.
+  Avoid repeatedly loading full logs or duplicating worker investigations.
+  For unrelated work, start a fresh session with a concise handoff; preserve
+  useful context for related follow-ups rather than restarting indiscriminately.
+- Prefer completion notifications or bounded waits over repeated status checks.
+  Poll when a decision or intervention depends on fresh state. Do not infer
+  waste from wait counts alone or compromise necessary monitoring to save tokens.
+- When evaluating cost, separate manager, worker, and automatic review usage;
+  deduplicate session fragments and use per-call usage or cumulative deltas.
+  Distinguish uncached input, cached input, output, and reasoning output (which
+  is part of output, not an additional charge). Compare total workflow cost and
+  rework, not token count alone. Label API-price estimates as estimates rather
+  than actual charges or Codex subscription-limit consumption.
 - After collecting a worker's results, leave it idle for related follow-up work
   or stop it when no longer needed; do not keep completed workers running or
   polling without a task.

@@ -144,9 +144,12 @@ These instructions apply to all projects unless a repository-level
   `open-source-orchestrator` skill before substantive work. If it is not listed,
   check `~/.codex/skills/open-source-orchestrator/SKILL.md`. If unavailable,
   report the missing dependency rather than silently skipping the workflow.
-- Keep that session as the manager, using the most capable available OpenAI
-  model for the work and its highest supported reasoning effort. Verify actual
-  settings; if they cannot be applied, explain the required user action.
+- Designate exactly one active manager per task. The initial session may manage
+  or hand off to a fresh session using the skill's handoff procedure.
+  Use GPT-5.6 Sol (`gpt-5.6-sol`) with
+  `high` reasoning effort by default. Verify actual settings. Follow the skill's
+  evidence-based escalation and cost-control policy; do not automatically
+  select the most capable model or maximum reasoning effort.
 - Worker agents must execute their assigned tasks with their assigned settings.
   The management role and mandatory delegation do not apply recursively;
   further delegation requires an explicit assignment from the manager.
