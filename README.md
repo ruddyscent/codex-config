@@ -7,9 +7,9 @@ or its account data.
 ## Contents
 
 - `AGENTS.md`: global working instructions to merge into the destination account.
-- `skills/open-source-orchestrator/SKILL.md`: open-source issue and PR workflow.
+- `skills/open-source-orchestrator/SKILL.md`: Codex CLI-only issue and PR workflow.
 - `skills/open-source-orchestrator/references/herdr.md`: conditional herdr pane
-  instructions, loaded only when running in herdr.
+  instructions, loaded only for Codex CLI running in herdr.
 
 ## Apply to another account
 
@@ -23,12 +23,35 @@ or its account data.
    `AGENTS.md`. Preserve unrelated account preferences. Adjust the fallback
    skill path in the orchestration section if the destination uses another
    location. Do not copy a source account's absolute paths.
-5. In a new task, ask Codex to load `$open-source-orchestrator` and summarize
+5. In a new Codex CLI session, ask Codex to load `$open-source-orchestrator` and summarize
    its scope and manager/worker roles. This checks discovery, not actual
    worktree creation or herdr execution.
 
 The repository does not change live settings automatically. Model selection
 and reasoning effort must still be checked in the actual execution environment.
+
+## Management policy
+
+The orchestration workflow applies only to Codex CLI. The separately referenced
+Development Branch Workflow keeps its existing scope.
+
+Use GPT-5.6 Sol with high reasoning effort as the default manager. Delegate hard
+technical decisions first; strengthen the manager only after repeated management
+failures, recording the reason and returning to the default when resolved.
+Evaluate cheaper settings through comparable trials rather than changing models
+on every turn. Keep handoffs concise and avoid repeatedly loading full logs.
+
+Each task has one active manager. The initial session may manage or hand off to
+an appropriately configured fresh session. Transfer goals, constraints, approval
+scope, worktrees, results, pending decisions, and the worker roster before the
+former manager becomes idle. Do not run two managers for the same task.
+
+In herdr, name worker panes `<management-pane-name>-<number>`, such as `review-1`
+and `review-2`. Start numbering at 1, avoid collisions, and retain names when
+reusing panes. See the herdr reference for manager handoff naming details.
+
+Installing these files does not change a running CLI session or herdr launch
+command. Verify actual model and reasoning settings on each host.
 
 ## Privacy and version control
 
