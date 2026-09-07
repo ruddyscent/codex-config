@@ -114,6 +114,28 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
 - This workflow does not authorize commits, pushes, issue or PR publication,
   merges, or destructive operations beyond the user's existing authorization.
 
+## Issue Insight Comments
+
+- When handling an issue, preserve useful discoveries in issue comments at
+  meaningful milestones, such as establishing the root cause, changing the
+  solution approach, or completing verification. Consolidate related findings;
+  do not post routine status updates or duplicate the existing discussion.
+- The manager assesses worker evidence and owns the consolidated comment.
+  Workers return proposed insights to the manager rather than independently
+  posting overlapping comments.
+- Include relevant verified causes, reproduction conditions, constraints,
+  solution rationale, and verification results, with concise evidence or links
+  to the applicable code revision. Clearly distinguish unverified hypotheses
+  and open questions from established findings. Exclude secrets, confidential
+  information, and unnecessary raw logs.
+- Post only when the user has explicitly authorized issue comments within the
+  task's scope. Reuse that authorization without asking again for each covered
+  comment. A request to investigate or fix an issue alone does not authorize
+  posting; without posting authorization, provide a ready-to-post draft in the
+  final response. Check the latest discussion before posting to avoid duplicates,
+  including after an uncertain posting result, and report the posted comment
+  link or any publication failure accurately.
+
 ## High-Risk PR Review
 
 - Keep the manager on Sol / high by default. Assign a semantic and contract
