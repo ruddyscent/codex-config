@@ -8,6 +8,10 @@ and independence requirements for high-risk changes.
 
 - Read the issue, requirements, diff, repository guidance, and relevant existing
   discussions. Treat the author's explanation as a hypothesis to verify.
+  Apply the skill's Issue and PR Evidence on Resume procedure to PR comments,
+  reviews, inline threads, and replies as well as issue comments. For independent
+  discovery, keep prior findings and verdicts with the manager until initial
+  assessments are recorded; reconcile the discussion history afterward.
 - Assign coverage of changed behavior and inspect unchanged surrounding code,
   callers, consumers, and analogous implementations. Account for every changed
   region; a checklist label alone is not evidence that it was reviewed.
@@ -15,6 +19,13 @@ and independence requirements for high-risk changes.
   ownership, lifecycle, invariants, and communication between components.
   Investigate local conventions, but do not assume existing patterns are correct
   or that deviations are defects without a concrete consequence.
+- For validators, collectors, or replay/checkpoint changes, derive the required
+  state and comparison rules from the producers, consumers, and controlling
+  contract. Compare that inventory with what the implementation actually checks;
+  passing comparisons cannot detect state omitted from the comparison entirely.
+  Distinguish exact identity or clock requirements from permitted numerical
+  tolerances before proposing a defect or a stricter test. Treat the manager's
+  acceptance matrix as reviewable context, not proof of complete coverage.
 - List relevant user-visible changes, including return values, defaults, errors,
   accepted/rejected inputs, side effects, and caller compatibility. Distinguish
   intentional changes with a migration plan from accidental regressions.
