@@ -41,6 +41,13 @@ These instructions apply to all projects unless a repository-level
 
 ## Testing and Verification
 
+- For multi-stage work, establish completion criteria and required verification
+  before implementation. Distinguish required outcomes from optional improvements.
+- Reuse prior verification only when the relevant code, inputs, and environment
+  remain applicable. Rerun affected checks after changes and disclose coverage
+  gaps; retain required CI and independent verification.
+- For cross-platform changes, check relevant environment and path assumptions
+  early, before expensive validation.
 - Run relevant tests after making code changes.
 - Start with focused tests for the affected area when available.
 - Run broader test suites when the change has wider impact or when practical.
@@ -120,6 +127,13 @@ These instructions apply to all projects unless a repository-level
 
 - Read the relevant issue or pull request before making changes when the task
   references one.
+- On follow-up work, review relevant issue comments and linked PR discussions,
+  including reviews, inline threads, replies, and resolved or outdated threads.
+  Reconcile completed work, remaining conditions, and superseded conclusions
+  with the current code and evidence. Explain why prior evidence cannot be reused
+  before repeating work, and disclose missing discussion or verification.
+  Preserve independent review by withholding prior findings and verdicts until
+  initial independent assessments are recorded.
 - Use the issue description, discussion, acceptance criteria, and repository
   code as context for the implementation.
 - Do not assume that an issue's proposed implementation is necessarily the
