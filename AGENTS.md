@@ -147,13 +147,15 @@ These instructions apply to all projects unless a repository-level
 
 ### Open-Source Issue and PR Orchestration
 
-- Apply the orchestration rules in this section only in Codex CLI when handling
-  issues or reviewing pull requests in open-source projects. Verify the host
-  from explicit runtime context; shell access alone does not establish CLI use.
-  Do not activate this workflow in the Codex desktop app, IDE extensions, or
-  other hosts. If the host is unknown, explain the uncertainty and do not
-  activate the workflow automatically. This host restriction does not change
-  the separate Development Branch Workflow instructions below.
+- Apply the orchestration rules in this section in Codex CLI and the Codex
+  desktop app when handling issues or reviewing pull requests in open-source
+  projects. Verify the host from explicit runtime context; shell access alone
+  does not establish the host. Do not activate this workflow automatically in
+  IDE extensions, other hosts, or an unknown host. Explain any uncertainty.
+  This scope does not change the separate Development Branch Workflow below.
+- Use native subagents in the desktop app. herdr pane operations apply only
+  to Codex CLI running inside herdr. Do not create separate sidebar tasks as
+  workers unless the user explicitly requests separate tasks.
 - Within that scope, the primary user-facing session must load and follow the
   `open-source-orchestrator` skill before substantive work. If it is not listed,
   check `~/.codex/skills/open-source-orchestrator/SKILL.md`. If unavailable,
