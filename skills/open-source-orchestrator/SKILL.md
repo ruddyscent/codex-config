@@ -1,18 +1,18 @@
 ---
 name: open-source-orchestrator
-description: Use only in Codex CLI to coordinate open-source issue handling and pull request reviews through delegated workers, isolated worktrees, and task-appropriate model settings. Use for the primary management session on those tasks; not for general coding, workflow advice, or editing this skill. Assigned workers execute their tasks directly without recursively applying management requirements.
+description: Coordinate open-source issue handling and pull request reviews in Codex CLI or the Codex desktop app through delegated workers, isolated worktrees, and task-appropriate model settings. Use for the primary management session on those tasks; not for general coding, workflow advice, or editing this skill. Assigned workers execute their tasks directly without recursively applying management requirements.
 ---
 
 # Open-Source Issue and PR Orchestration
 
-- Apply the orchestration workflow only in Codex CLI when handling issues or
-  reviewing pull requests in open-source projects. Verify the execution host
-  from explicit runtime context; access to shell tools is not proof of CLI use.
-  Do not activate orchestration in the Codex desktop app, IDE extensions, or
-  other hosts. If the host cannot be determined, explain the uncertainty and
-  do not activate orchestration automatically.
+- Apply the orchestration workflow in Codex CLI and the Codex desktop app when
+  handling issues or reviewing pull requests in open-source projects. Verify
+  the execution host from explicit runtime context; shell tools alone do not
+  identify the host. Do not activate orchestration automatically in IDE
+  extensions or other hosts. If the host cannot be determined, explain the
+  uncertainty and do not activate orchestration automatically.
 - This host restriction applies to orchestration, not to a separately referenced
-  Development Branch Workflow section. Reading that section outside Codex CLI
+  Development Branch Workflow section. Reading only that section
   must not activate the manager, delegation, or model-selection requirements.
 - The management role, mandatory delegation, and default model/effort
   requirements apply only to the designated management session. Worker agents
@@ -76,9 +76,11 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
   duplicate investigation. Avoid parallel work solely because it is possible.
   Avoid concurrent writes to the same files, using separate worktrees for workers
   when isolation is needed. Delegate integration and conflict resolution.
-- When running in herdr, read and follow [herdr pane operations](references/herdr.md)
-  before assigning workers. Load that reference only for herdr sessions.
-- Outside herdr, use the available native subagent mechanism. If required
+- In Codex CLI running inside herdr, read and follow
+  [herdr pane operations](references/herdr.md) before assigning workers.
+  Load that reference only for that host combination.
+- In the desktop app, follow Desktop Subagent Operations below. In Codex CLI
+  outside herdr, use the available native subagent mechanism. If required
   worker or pane controls are unavailable, report the blocker and required
   action rather than silently replacing delegation with direct execution.
 - Choose each worker's model and reasoning effort according to task difficulty,
@@ -137,6 +139,30 @@ description: Use only in Codex CLI to coordinate open-source issue handling and 
   not discard work or remove worktrees merely because a subtask has finished.
 - This workflow does not authorize commits, pushes, issue or PR publication,
   merges, or destructive operations beyond the user's existing authorization.
+
+## Desktop Subagent Operations
+
+- Use the native subagent controls exposed in the current session to assign
+  bounded work, receive results, and send related follow-ups to existing workers.
+  Track agent identifiers, ownership, worktree paths, and pending decisions.
+  The manager assesses results and owns the user-facing integration report.
+- Native subagents are distinct from separate sidebar tasks. Do not create,
+  fork, or repurpose sidebar tasks as a delegation or model-switch workaround
+  unless the user explicitly requests that task operation. Use manager handoff
+  only when the host supports it and the required task operation is authorized.
+- Inspect supported model/effort controls and inheritance before dispatch.
+  Verify actual settings where exposed; a requested model is not confirmation.
+  Do not claim to change the current manager's settings through a worker launch.
+  If required settings cannot be applied or verified, report the limitation and
+  required user action under the common model policy.
+- Do not assume spawning an agent creates an isolated checkout. Give workers
+  explicit working paths and disjoint file ownership; create separate worktrees
+  for concurrent writes that need isolation. Use a fresh conversation with only
+  the required source context for independent reviews; do not inherit earlier
+  reviewer findings through a full-history fork.
+- Prefer completion notifications or bounded waits, and reuse idle workers for
+  related follow-ups. Leave finished workers idle or stop them when no longer
+  needed; do not create visible tasks merely to preserve worker availability.
 
 ## Issue and PR Evidence on Resume
 

@@ -7,7 +7,8 @@ or its account data.
 ## Contents
 
 - `AGENTS.md`: global working instructions to merge into the destination account.
-- `skills/open-source-orchestrator/SKILL.md`: Codex CLI-only issue and PR workflow.
+- `skills/open-source-orchestrator/SKILL.md`: shared Codex CLI and desktop app
+  issue and PR workflow, including native desktop subagent operations.
 - `skills/open-source-orchestrator/references/herdr.md`: conditional herdr pane
   instructions, loaded only for Codex CLI running in herdr.
 
@@ -30,17 +31,19 @@ folder when installing or updating the skill.
    `AGENTS.md`. Preserve unrelated account preferences. Adjust the fallback
    skill path in the orchestration section if the destination uses another
    location. Do not copy a source account's absolute paths.
-5. In a new Codex CLI session, ask Codex to load `$open-source-orchestrator` and summarize
-   its scope and manager/worker roles. This checks discovery, not actual
-   worktree creation or herdr execution.
+5. In a new Codex CLI or desktop app session, ask Codex to load
+   `$open-source-orchestrator` and summarize its scope and manager/worker roles.
+   This checks discovery, not actual worktree creation or worker execution.
 
 The repository does not change live settings automatically. Model selection
 and reasoning effort must still be checked in the actual execution environment.
 
 ## Management policy
 
-The orchestration workflow applies only to Codex CLI. The separately referenced
-Development Branch Workflow keeps its existing scope.
+The orchestration workflow applies to Codex CLI and the Codex desktop app for
+open-source issue and PR work. IDE extensions and other hosts do not activate
+it automatically. The separately referenced Development Branch Workflow keeps
+its existing scope.
 
 Use GPT-5.6 Sol with high reasoning effort as the default manager. Delegate hard
 technical decisions first; strengthen the manager only after repeated management
@@ -59,12 +62,19 @@ an appropriately configured fresh session. Transfer goals, constraints, approval
 scope, worktrees, results, pending decisions, and the worker roster before the
 former manager becomes idle. Do not run two managers for the same task.
 
-In herdr, name worker panes `<management-pane-name>-<number>`, such as `review-1`
+In Codex CLI running inside herdr, name worker panes
+`<management-pane-name>-<number>`, such as `review-1`
 and `review-2`. Start numbering at 1, avoid collisions, and retain names when
 reusing panes. See the herdr reference for manager handoff naming details.
 
-Installing these files does not change a running CLI session or herdr launch
-command. Verify actual model and reasoning settings on each host.
+In the desktop app, use native subagents rather than separate sidebar tasks.
+Assign explicit worktree paths and file ownership; spawning a worker does not
+establish checkout isolation. Keep independent reviews in fresh conversations.
+Separate sidebar tasks require an explicit user request.
+
+Installing these files does not change a running CLI or desktop session's model
+or reasoning settings, or a herdr launch command. Verify actual settings and
+available controls on each host; disclose settings that cannot be verified.
 
 ## Privacy and version control
 
