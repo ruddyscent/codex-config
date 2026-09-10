@@ -123,8 +123,14 @@ description: Coordinate open-source issue handling and pull request reviews in C
   waste from wait counts alone or compromise necessary monitoring to save tokens.
   Assign one owner to each shared CI run or worker-status watch. Return state
   changes, failures, and decisions needed to the manager rather than having
-  multiple agents poll the same source. Reuse the remaining-work matrix on
-  follow-up turns instead of rebuilding the full task history.
+  multiple agents poll the same source. After a confirmed management handoff,
+  the former manager must not run a parallel status-watch loop.
+  When a wait is needed, default to 60 seconds, subject to tool and host limits.
+  Use shorter repeated waits only when a concrete intervention or decision
+  requires that latency; state the reason. Relay state changes, failures, and
+  decisions needed promptly, while preserving required user-facing progress
+  updates without polling solely to produce an update. Reuse the remaining-work
+  matrix on follow-up turns instead of rebuilding the full task history.
 - When evaluating cost, separate manager, worker, and automatic review usage;
   deduplicate session fragments and use per-call usage or cumulative deltas.
   Distinguish uncached input, cached input, output, and reasoning output (which
@@ -160,8 +166,8 @@ description: Coordinate open-source issue handling and pull request reviews in C
   for concurrent writes that need isolation. Use a fresh conversation with only
   the required source context for independent reviews; do not inherit earlier
   reviewer findings through a full-history fork.
-- Prefer completion notifications or bounded waits, and reuse idle workers for
-  related follow-ups. Leave finished workers idle or stop them when no longer
+- Follow the common status-watch ownership and bounded-wait rules above, and
+  reuse idle workers for related follow-ups. Leave finished workers idle or stop them when no longer
   needed; do not create visible tasks merely to preserve worker availability.
 
 ## Issue and PR Evidence on Resume
