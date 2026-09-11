@@ -141,6 +141,12 @@ These instructions apply to all projects unless a repository-level
 - When fixing a reported bug, reproduce or otherwise establish the failure
   condition when practical before changing the code.
 - After fixing a bug, verify the behavior and run relevant regression tests.
+- Before reporting issue work complete, reconcile each in-scope issue-body
+  completion checkbox with evidence that still applies to the current revision
+  and environment. When authorized, save the evidence-backed checkbox updates
+  and verify the resulting body; otherwise report the exact pending updates or
+  publication failure without claiming issue completion or expanding the
+  authorization to comments, closure, commits, or pushes.
 - When preparing a pull request, summarize what changed, why it changed, and
   how it was verified.
 - Do not merge or close issues or pull requests unless explicitly requested.
