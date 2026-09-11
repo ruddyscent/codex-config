@@ -45,17 +45,39 @@ open-source issue and PR work. IDE extensions and other hosts do not activate
 it automatically. The separately referenced Development Branch Workflow keeps
 its existing scope.
 
-Use GPT-5.6 Sol with high reasoning effort as the default manager. Delegate hard
-technical decisions first; strengthen the manager only after repeated management
-failures, recording the reason and returning to the default when resolved.
-Evaluate cheaper settings through comparable trials rather than changing models
-on every turn. Keep handoffs concise and avoid repeatedly loading full logs.
+Use GPT-6 Astra with high reasoning effort as the initial manager evaluation
+baseline. This is a migration starting point, not a proven optimal setting.
+Before describing the manager policy as optimized, compare Astra/high with
+Astra/medium on comparable work. Medium is a candidate for planning,
+decomposition, and delegation that need judgment; high remains appropriate for
+complex agentic work. Choose for requirement coverage first, then compare cost
+and latency among settings that meet the quality bar. Keep handoffs concise and
+avoid repeatedly loading full logs.
+
+Evaluate the migration in stages: first compare Sol/high with Astra/high, then
+compare Astra/high with Astra/medium. Within each comparison, hold the task
+revision, inputs, instructions, tools, and acceptance criteria constant. Record
+requirement coverage, decomposition quality, evidence judgment, unnecessary
+pauses, rework, elapsed time, and total manager, worker, and automatic-review
+usage and workflow cost. Tune prompts in separate trials only when an observed
+problem warrants a change, so prompt effects are not attributed to the model or
+effort setting.
+Treat API-price calculations as estimates separate from Codex subscription
+consumption. These repository instructions define the evaluation policy; they
+do not claim that comparative trials have already been performed.
+
+The manager may select stronger settings proactively when known complexity or
+risk supports that choice; repeated failures are not a prerequisite. Use
+`xhigh` only when evaluation shows a clear benefit for the task class, and
+evaluate `max` against `xhigh` before adopting it. Keep cheaper worker roles for
+bounded work and preserve task-appropriate worker selection.
 
 High-risk PRs receive proactive semantic/contract review with Astra at high
 reasoning or above, a separate independent counterexample review, and focused
-execution checks. The manager remains Sol/high. Reviewers must report exact
-revisions, coverage, evidence, and missing verification; material gaps prevent
-an unqualified approval. See the skill's High-Risk PR Review procedure.
+execution checks. The manager uses the Astra/high initial evaluation baseline;
+the semantic review remains a separate worker assignment. Reviewers must report
+exact revisions, coverage, evidence, and missing verification; material gaps
+prevent an unqualified approval. See the skill's High-Risk PR Review procedure.
 
 Each task has one active manager. The initial session may manage or hand off to
 an appropriately configured fresh session. Transfer goals, constraints, approval

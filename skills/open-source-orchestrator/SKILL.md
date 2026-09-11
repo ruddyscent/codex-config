@@ -29,21 +29,40 @@ description: Coordinate open-source issue handling and pull request reviews in C
   or end it. Do not interrupt active workers or expand authorization on handoff.
   If the recipient is not ready, retain the existing manager as the sole owner.
 - Configure the designated management session before substantive work.
-  Default to GPT-5.6 Sol (`gpt-5.6-sol`) with `high` reasoning effort. Verify
-  actual runtime settings before substantive work; instructions alone do not
-  change a running session. If unavailable, explain the limitation and required
-  action instead of silently substituting another model or effort level.
+  Use GPT-6 Astra (`gpt-6-astra`) with `high` reasoning effort as the initial
+  evaluation baseline. This migration baseline is not a proven optimal default.
+  Verify actual runtime settings before substantive work; instructions alone do
+  not change a running session. If unavailable, explain the limitation and
+  required action instead of silently substituting another model or effort level.
 - Use current official OpenAI guidance and runtime availability when periodically
   reassessing the default or selecting an exception. Do not reselect the manager
   model on every turn or automatically choose the strongest model and effort.
-- Delegate difficult technical judgments to a suitably capable worker first,
-  including Astra when justified. Escalate the manager only when repeated
-  decomposition or evidence-assessment failures remain after focused worker
-  assistance. Record the observed failure, reason, chosen model and effort,
-  and scope of the exception; return to the default when that scope is resolved.
-- Treat Sol / medium and cheaper manager models as controlled trials on comparable
-  tasks, not automatic replacements. Compare total cost, completion quality,
-  missed requirements, and rework before proposing a change to the default.
+- Select the manager model and effort for accuracy and requirement coverage
+  first, then optimize cost and latency among settings that meet the quality bar.
+  `medium` is appropriate to evaluate for planning, decomposition, delegation,
+  and other work requiring judgment; use `high` for complex agentic work.
+  Known complexity or risk may justify a stronger setting proactively without
+  waiting for repeated failures. Use `xhigh` only when evaluation shows a clear
+  benefit for the relevant task class, and compare `max` with `xhigh` before
+  adopting it. Record the evidence, reason, and scope for these choices rather
+  than automatically selecting maximum effort.
+- Delegate difficult technical judgments to a suitably capable worker when that
+  is the most efficient way to obtain reliable evidence. Record observed quality
+  gaps and revise assignments or settings when results are insufficient. Return
+  from a scoped exception when its reason no longer applies.
+- Evaluate the manager migration in two stages. First compare Sol/high with
+  Astra/high. Then compare Astra/high with Astra/medium before claiming that an
+  optimized manager default has been established. Hold the task revision,
+  inputs, instructions, available tools, and acceptance criteria constant within
+  each comparison. Change prompts only in separate trials addressing observed
+  problems, so prompt tuning is not confounded with model or effort selection.
+  Do not imply that these trials occurred unless their evidence is available.
+- Define the quality bar before each comparison. Assess requirement coverage,
+  decomposition quality, evidence judgment, unnecessary pauses, rework, elapsed
+  time, and total workflow usage across manager, workers, and automatic review.
+  Keep API-price estimates separate from actual Codex subscription consumption.
+  Preserve task-appropriate cheaper worker roles and compare total workflow cost,
+  not manager usage alone.
 - Create a dedicated Git worktree for the issue or PR before substantive
   repository work, using the relevant base or PR revision. Reuse that task's
   worktree on follow-up turns. Preserve the original checkout and user changes,
@@ -223,11 +242,13 @@ description: Coordinate open-source issue handling and pull request reviews in C
 
 ## High-Risk PR Review
 
-- Keep the manager on Sol / high by default. Assign a semantic and contract
-  reviewer using GPT-6 Astra (`gpt-6-astra`) with at least `high` reasoning;
-  choose a higher supported effort when the complexity warrants it. If that
-  capability is unavailable, report the unmet review requirement and required
-  action instead of silently substituting a weaker review or claiming completion.
+- Keep the manager on the Astra/high initial evaluation baseline. Assign a
+  separate semantic and contract reviewer using GPT-6 Astra (`gpt-6-astra`)
+  with at least `high` reasoning. Choose `xhigh` only when evaluation evidence
+  shows a clear benefit for this review class, and evaluate `max` against
+  `xhigh` before using it as a policy. If the required capability is unavailable,
+  report the unmet review requirement and required action instead of silently
+  substituting a weaker review or claiming completion.
 - Assign a separate reviewer to search independently for counterexamples.
   Provide the same base/head revisions, requirements, source, and build context,
   but withhold the first reviewer's findings and verdict until both initial
