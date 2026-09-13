@@ -25,3 +25,23 @@ inside a herdr pane. herdr usage alone does not establish that the agent is CLI.
   task assumptions into a new assignment.
 - Keep completed panes idle and available for reuse; stop unneeded workers
   without closing reusable panes.
+
+## Pane Layout
+
+- Preserve the management pane's full available height for reasoning output
+  and user interaction. Keep it on the left and place workers on the right.
+  Inspect the existing layout before creating panes; reuse a suitable worker
+  area rather than splitting the management pane again.
+- When starting from a single management pane, create the first worker with
+  `herdr pane split --pane MANAGER_ID --direction right --ratio 0.65 --no-focus`,
+  replacing `MANAGER_ID` with its stable pane ID. The ratio keeps approximately
+  65% of the width for the manager; adjust the width to the terminal size and
+  user preference while preserving the manager's height.
+- Create additional workers by splitting panes within the right-hand worker
+  area using `--direction down` and an appropriate `--ratio`. Never split the
+  management pane downward to make room for workers. Target explicit worker
+  pane IDs so a change in focus cannot split the wrong pane.
+- Use `--no-focus` when creating worker panes to preserve the user's current
+  focus. Verify the resulting layout after changes. Preserve this arrangement
+  during pane reuse and manager handoff without restarting active sessions;
+  an explicit user layout request takes precedence.
