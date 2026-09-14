@@ -1,6 +1,6 @@
 # Codex Configuration
 
-Portable working instructions and a personal orchestration skill for Codex.
+Portable working instructions and personal workflow skills for Codex.
 This repository contains curated text files, not a copy of the Codex runtime
 or its account data.
 
@@ -18,6 +18,19 @@ process adds caller/contract investigation, candidate deduplication, and separat
 fact-checking; PyTorch guidance is read from the reviewed repository revision
 rather than copied into this configuration. Preserve the entire references
 folder when installing or updating the skill.
+
+## Character relationship maps
+
+`skills/character-relation-map/` contains the installed relationship-map skill,
+its registry templates, schema, and starter SVG renderer. Preserve the entire
+folder when installing it into the personal skills directory, and compare and
+back up an existing installation first. Portrait constraints distinguish sourced
+traits, user-directed choices, and unknown details; verify assets against these
+constraints while preserving the semantic graph during style changes.
+
+The starter renderer requires PyYAML and produces a basic text-and-edge SVG.
+It does not implement portrait embedding or the full skill QA workflow; adapt
+layout and inspect the result for the specific work.
 
 ## Apply to another account
 

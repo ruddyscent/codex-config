@@ -1,0 +1,18 @@
+characters:
+  - id: example_character
+    name: 예시 인물
+    original_name: Example Character
+    aliases: []
+    role: 주요 인물
+    group: core
+    description: 간결하고 검증된 인물 설명
+    first_appearance: null
+    last_appearance: null
+    confidence: CONFIRMED
+    appearance:
+      verified_traits: []  # Entries: trait, value, source
+      user_specified_traits: []  # Entries: trait, value; not automatically canon
+      unknown_traits: []  # Relevant traits for which evidence is unavailable
+    portrait: portraits/example_character.png
+    sources:
+      - note: 출처와 확인 사항 기록
