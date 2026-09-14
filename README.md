@@ -21,10 +21,13 @@ folder when installing or updating the skill.
 
 ## Character relationship maps
 
-`skills/character-relation-map/` contains the installed relationship-map skill,
+`skills/character-relationship-map/` contains the installed relationship-map skill,
 its registry templates, schema, and starter SVG renderer. Preserve the entire
-folder when installing it into the personal skills directory, and compare and
-back up an existing installation first. Portrait constraints distinguish sourced
+folder when installing it as `~/.codex/skills/character-relation-map/`, and compare
+and back up an existing installation first. The source folder is
+`character-relationship-map`; the existing frontmatter name and invocation remain
+`character-relation-map` for compatibility. Do not maintain a second source copy
+under that installation name. Portrait constraints distinguish sourced
 traits, user-directed choices, and unknown details; verify assets against these
 constraints while preserving the semantic graph during style changes.
 
