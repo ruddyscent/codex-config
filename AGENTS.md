@@ -123,6 +123,17 @@ These instructions apply to all projects unless a repository-level
 - Never expose authentication tokens, credentials, private keys, or secrets in
   logs, commits, patches, or responses.
 
+### Notification Triage
+
+- When triaging notifications, establish the account, filters, and snapshot
+  time. Reconcile API and user-visible counts when they disagree before claiming
+  the inbox is empty; disclose unavailable coverage.
+- Track each actionable notification's affected repository, supporting evidence,
+  action, and unresolved conditions. For dependency advisories, inspect relevant
+  manifests or lockfiles when alert metadata does not establish exposure.
+  Reading a notification or seeing zero open alerts does not prove remediation.
+  Verify any authorized fix separately; triage does not authorize code changes.
+
 ## GitHub Issues and Pull Requests
 
 - Read the relevant issue or pull request before making changes when the task
@@ -217,6 +228,25 @@ These instructions apply to all projects unless a repository-level
 - Prefer examples that can actually be executed.
 - Do not create new documentation files unless they provide clear value or are
   requested.
+
+### Evidence-Preserving Editing
+
+- When shortening or polishing technical reports and review replies, preserve
+  revisions, counts, environments, and coverage limits, including tests not rerun
+  and scratch probes versus committed regressions. Check arithmetic and whether
+  counts are per environment or combined against the source before delivery.
+- Do not turn an AI draft into user approval or invent first-person claims of
+  personal verification. Use only judgments and actions the user has confirmed.
+
+### Feedback Form Troubleshooting
+
+- For feedback that will not save, inspect the actual error and field state
+  before attributing failure to length or formatting. Preserve a version whose
+  save the user or tool has confirmed, with its verdict and supporting evidence.
+- Restore one formatting feature at a time and verify saving before adding the
+  next. Separate local file creation from destination acceptance; report any
+  untested final variant or unknown cause. Do not strip formatting from unrelated
+  feedback based on one failure.
 
 ## Multi-Host Development
 

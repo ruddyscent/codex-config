@@ -82,7 +82,8 @@
 .AppleDouble
 .LSOverride
 # Icon filename ends with carriage returns
-Icon[]
+Icon[
+]
 # Thumbnails
 ._*
 # Files at the root of a volume
@@ -195,3 +196,17 @@ $RECYCLE.BIN/
 !/skills/open-source-orchestrator/references/herdr.md
 !/skills/open-source-orchestrator/references/review-process.md
 !/skills/open-source-orchestrator/references/pytorch-review.md
+
+!/skills/character-relation-map/
+/skills/character-relation-map/*
+!/skills/character-relation-map/SKILL.md
+!/skills/character-relation-map/references/
+/skills/character-relation-map/references/*
+!/skills/character-relation-map/references/schema.md
+!/skills/character-relation-map/templates/
+/skills/character-relation-map/templates/*
+!/skills/character-relation-map/templates/characters.yaml
+!/skills/character-relation-map/templates/relationships.yaml
+!/skills/character-relation-map/scripts/
+/skills/character-relation-map/scripts/*
+!/skills/character-relation-map/scripts/build_map.py

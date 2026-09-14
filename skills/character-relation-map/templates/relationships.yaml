@@ -1,0 +1,9 @@
+relationships:
+  - from: example_character
+    to: another_character
+    type: friendship
+    label: 친구
+    direction: mutual
+    confidence: CONFIRMED
+    sources:
+      - note: 관계를 뒷받침하는 출처/장면
