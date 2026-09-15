@@ -25,6 +25,17 @@ These instructions apply to all projects unless a repository-level
 - Treat repository-specific instructions as authoritative for that repository
   when they differ from these global defaults.
 
+### Source and Installation Provenance
+
+- Before declaring a named skill or configuration source missing, check the
+  relevant directory for ignored or hidden files and inspect installation
+  history when available. Scope searches to likely project and skill paths;
+  do not scan credential or session stores to locate configuration sources.
+- Confirm the maintained source, installation destination, and invocation name
+  before editing or copying. These names may differ. Update the existing source
+  and preserve unrelated destination changes rather than creating a second
+  source from an installed copy. Report unresolved provenance explicitly.
+
 ## Code Changes
 
 - Understand the relevant code path before editing it.

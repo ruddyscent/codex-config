@@ -124,12 +124,32 @@ description: Coordinate open-source issue handling and pull request reviews in C
   separately where relevant; do not invent stronger requirements. Keep deferred
   performance work and other exclusions explicit. Revise the matrix when new
   evidence changes the scope, explaining which prior conclusions it invalidates.
+- Carry every accepted in-scope finding through the delivery ledger, including
+  its implementation, required regression coverage, verification evidence, and
+  inclusion in the candidate diff or published commit. Before the first commit,
+  push, or review draft that claims completion, reconcile all such findings;
+  priority alone must not silently drop a lower-priority accepted requirement.
+  Record explicit deferrals and their scope rationale. After an authorized
+  publication, verify the remote revision and ensure the draft distinguishes
+  upstream gaps, local fixes, and published changes. This ledger does not expand
+  authorization to fix or publish additional work.
 - Before expensive backend or hardware checks, run the cheaper prerequisite
   checks relevant to the changed code. For cross-host work, check interpreter
   prerequisites and path assumptions in tests or fixtures where applicable.
   Distinguish unsupported environments from failures in supported ones; preserve
   production guards and required coverage. Local success does not establish
   portability or complete state coverage.
+- For intended GPU validation, establish device visibility and the relevant
+  interpreter/build before expensive execution. A sandbox visibility failure
+  does not establish that the host lacks a GPU; use an authorized host-level
+  check when needed, or disclose that host capability is unverified. Preserve
+  approval boundaries and do not change drivers or rebuild solely on that basis.
+- Validate a newly found backend-relevant counterexample on the intended
+  backends/devices, or disclose missing coverage. Record the Python source
+  revision, native build provenance, and device for mixed-build validation.
+  Reuse unaffected checks only when these dependencies and the tested behavior
+  remain applicable; unchanged patch hashes alone do not establish environment
+  equivalence or replace required CI and independent review.
 - Reuse accepted evidence when its source revision, inputs, environment, and
   covered behavior still apply. For a changed revision, identify the affected
   acceptance rows and rerun the relevant checks; do not assume either that all
