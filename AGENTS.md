@@ -57,6 +57,9 @@ These instructions apply to all projects unless a repository-level
 - Reuse prior verification only when the relevant code, inputs, and environment
   remain applicable. Rerun affected checks after changes and disclose coverage
   gaps; retain required CI and independent verification.
+- Distinguish checks rerun after the final edit from earlier evidence reused
+  with justification. A targeted rerun does not establish a full-suite pass on
+  the final revision; preserve that distinction in completion summaries.
 - For cross-platform changes, check relevant environment and path assumptions
   early, before expensive validation.
 - Run relevant tests after making code changes.
@@ -66,6 +69,12 @@ These instructions apply to all projects unless a repository-level
 - If tests cannot be run, clearly state why.
 - Report failing tests that appear unrelated to the change instead of silently
   modifying unrelated code to make them pass.
+- Before fixing CI failures, distinguish change-induced failures, pre-existing
+  failures, and environment or dependency problems using relevant logs and
+  comparable baseline evidence. Leave uncertain attribution explicit. Separate
+  the PR's required fixes from other authorized repairs in the work plan and
+  delivery summary; a request to repair all CI does not make every failure a
+  regression caused by the PR.
 - Do not weaken, remove, or bypass tests merely to obtain a passing result.
 
 ## Git

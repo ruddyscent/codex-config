@@ -133,6 +133,18 @@ description: Coordinate open-source issue handling and pull request reviews in C
   publication, verify the remote revision and ensure the draft distinguishes
   upstream gaps, local fixes, and published changes. This ledger does not expand
   authorization to fix or publish additional work.
+- Before assigning CI repairs, classify each distinct failure cause as
+  change-induced, pre-existing, environment/dependency-related, or unresolved.
+  Record the failing job and revision, relevant baseline/log evidence, and
+  whether the repair belongs to the PR or separate authorized work. Compare
+  equivalent conditions before claiming causality; one cause may explain
+  multiple failed jobs. Start authorized repairs once attribution is sufficient,
+  and keep uncertain cases explicit rather than forcing a classification.
+  When the user requests all CI failures fixed, continue that authorized scope
+  without another approval gate, but keep unrelated repairs separately
+  reviewable and, when committing is authorized, in separate commits where
+  practical. State which commits are needed for the PR and which fix existing
+  CI problems; do not waive required CI because a failure predates the PR.
 - Before expensive backend or hardware checks, run the cheaper prerequisite
   checks relevant to the changed code. For cross-host work, check interpreter
   prerequisites and path assumptions in tests or fixtures where applicable.
@@ -157,6 +169,12 @@ description: Coordinate open-source issue handling and pull request reviews in C
   independent review still apply. Once required rows are satisfied, proceed to
   the remaining authorized delivery steps instead of adding speculative work;
   report unavailable checks or missing authorization explicitly.
+- In the final evidence ledger, distinguish final-revision executions from
+  reused earlier checks, with the intervening delta and reuse rationale. If an
+  edit occurs during or after a suite, record the tested revision or file hashes
+  and the affected checks rerun afterward; do not describe a targeted rerun as
+  a full final-revision pass. Preserve independent reviewers' own execution
+  coverage separately from manager, implementation-worker, and hosted CI results.
 - Prefer completion notifications or bounded waits over repeated status checks.
   Poll when a decision or intervention depends on fresh state. Do not infer
   waste from wait counts alone or compromise necessary monitoring to save tokens.
