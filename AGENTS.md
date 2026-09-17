@@ -180,6 +180,12 @@ These instructions apply to all projects unless a repository-level
   authorization to comments, closure, commits, or pushes.
 - When preparing a pull request, summarize what changed, why it changed, and
   how it was verified.
+- When drafting a review reply, establish the user's role, target thread, and
+  requested length from the available context. For a short introduction to an
+  existing technical response, prefer one sentence without repeating its evidence
+  or implying personal verification. For cross-thread references, distinguish
+  the posting destination from the linked evidence and verify both permalinks.
+  Drafting does not authorize posting or resolving the thread.
 - Do not merge or close issues or pull requests unless explicitly requested.
 
 ### Open-Source Issue and PR Orchestration
@@ -263,6 +269,12 @@ These instructions apply to all projects unless a repository-level
 - For feedback that will not save, inspect the actual error and field state
   before attributing failure to length or formatting. Preserve a version whose
   save the user or tool has confirmed, with its verdict and supporting evidence.
+- If a revision also fails, avoid successive shortening or format removal
+  without new diagnostic evidence. Inspect the accessible form or ask for the
+  exact error and field; treat any user-requested rewrite as an unverified
+  candidate until saving is confirmed. Preserve the verdict and evidence, and
+  vary one suspected cause at a time. Do not overwrite a confirmed working
+  version with an untested variant.
 - Restore one formatting feature at a time and verify saving before adding the
   next. Separate local file creation from destination acceptance; report any
   untested final variant or unknown cause. Do not strip formatting from unrelated

@@ -156,6 +156,14 @@ description: Coordinate open-source issue handling and pull request reviews in C
   does not establish that the host lacks a GPU; use an authorized host-level
   check when needed, or disclose that host capability is unverified. Preserve
   approval boundaries and do not change drivers or rebuild solely on that basis.
+- Before the final expensive validation matrix, check that known acceptance
+  conditions have corresponding assertions, including value, type, layout, or
+  mutation behavior where the contract requires them. Complete relevant cheap
+  checks and identify the candidate source/test hashes before releasing device
+  runs. Avoid discretionary edits during those runs; a new independent finding
+  can still require changes. Record any replacement candidate and rerun affected
+  checks under the evidence-reuse rules rather than freezing out valid findings
+  or automatically repeating the entire matrix.
 - Validate a newly found backend-relevant counterexample on the intended
   backends/devices, or disclose missing coverage. Record the Python source
   revision, native build provenance, and device for mixed-build validation.
