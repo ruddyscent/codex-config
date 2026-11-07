@@ -1,5 +1,5 @@
 ---
-name: open-source-orchestrator
+name: oss-orchestrator
 description: Coordinate open-source issue handling and pull request reviews in Codex CLI or the Codex desktop app through proportional delegation, isolated worktrees, and task-appropriate model settings. Use for the primary management session on those tasks; not for general coding, workflow advice, or editing this skill. Assigned workers execute their tasks directly without recursively applying management requirements.
 ---
 

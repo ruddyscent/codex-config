@@ -7,9 +7,9 @@ or its account data.
 ## Contents
 
 - `AGENTS.md`: global working instructions to merge into the destination account.
-- `skills/open-source-orchestrator/SKILL.md`: shared Codex CLI and desktop app
+- `skills/oss-orchestrator/SKILL.md`: shared Codex CLI and desktop app
   issue and PR workflow, including native desktop subagent operations.
-- `skills/open-source-orchestrator/references/herdr.md`: conditional herdr pane
+- `skills/oss-orchestrator/references/herdr.md`: conditional herdr pane
   instructions, loaded only for Codex CLI running in herdr.
 
 The skill loads `references/review-process.md` for PR reviews and
@@ -40,7 +40,7 @@ layout and inspect the result for the specific work.
 1. Locate the destination Codex home (`CODEX_HOME` when configured; otherwise
    `~/.codex`) and confirm its personal skill discovery location.
 2. Compare and back up existing destination files before making changes.
-3. Copy `skills/open-source-orchestrator/` into the personal skills directory,
+3. Copy `skills/oss-orchestrator/` into the personal skills directory,
    preserving the `references/herdr.md` relative path. If it already exists,
    compare and merge local changes instead of overwriting them blindly.
 4. Merge the desired instructions from `AGENTS.md` into the destination global
@@ -48,11 +48,28 @@ layout and inspect the result for the specific work.
    skill path in the orchestration section if the destination uses another
    location. Do not copy a source account's absolute paths.
 5. In a new Codex CLI or desktop app session, ask Codex to load
-   `$open-source-orchestrator` and summarize its scope and manager/worker roles.
+   `$oss-orchestrator` and summarize its scope and manager/worker roles.
    This checks discovery, not actual worktree creation or worker execution.
 
 The repository does not change live settings automatically. Model selection
 and reasoning effort must still be checked in the actual execution environment.
+
+## Migrate an existing installation
+
+The maintained source is `skills/oss-orchestrator/`; the frontmatter name and
+invocation are `oss-orchestrator` and `$oss-orchestrator`. For an installation
+using `~/.codex/skills/open-source-orchestrator/` (or the corresponding configured
+Codex home), compare the old installation with the maintained source and any
+existing `oss-orchestrator` destination first. Back up outside skill discovery
+paths, then merge local changes and preserve the entire references folder.
+Do not overwrite either installation blindly or create a second maintained source.
+
+After verifying the merged destination, retire the old
+`open-source-orchestrator` installation from discovery so only `oss-orchestrator`
+remains. Merge the updated references and fallback path into the destination
+`AGENTS.md`, preserving unrelated preferences. Use a fresh Codex CLI or desktop
+session to verify `$oss-orchestrator` discovery and loading. Repository edits do
+not migrate live installations automatically.
 
 ## Management policy
 
@@ -88,9 +105,10 @@ optimized default; do not invent benchmark or savings claims.
 This replaces the Astra/high migration baseline and fixed staged comparison in
 [issue #10](https://github.com/ruddyscent/codex-config/issues/10), superseded by
 [issue #21](https://github.com/ruddyscent/codex-config/issues/21). Quality gates,
-independent review, and authorization boundaries remain intact. The skill name
-and paths remain unchanged here; their rename is tracked separately in
-[issue #20](https://github.com/ruddyscent/codex-config/issues/20).
+independent review, and authorization boundaries remain intact. The skill was
+renamed to `oss-orchestrator` in
+[issue #20](https://github.com/ruddyscent/codex-config/issues/20); this naming
+change preserves the model and delegation policy.
 
 High-risk PRs still receive a separate Astra semantic/contract reviewer at high
 reasoning or above, an independent counterexample reviewer, and focused execution

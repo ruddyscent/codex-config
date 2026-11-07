@@ -200,8 +200,8 @@ These instructions apply to all projects unless a repository-level
   to Codex CLI running inside herdr. Do not create separate sidebar tasks as
   workers unless the user explicitly requests separate tasks.
 - Within that scope, the primary user-facing session must load and follow the
-  `open-source-orchestrator` skill before substantive work. If it is not listed,
-  check `~/.codex/skills/open-source-orchestrator/SKILL.md`. If unavailable,
+  `oss-orchestrator` skill before substantive work. If it is not listed,
+  check `~/.codex/skills/oss-orchestrator/SKILL.md`. If unavailable,
   report the missing dependency rather than silently skipping the workflow.
 - Designate exactly one active manager per task. The initial session may manage
   or hand off to a fresh session using the skill's handoff procedure.
@@ -223,7 +223,7 @@ These instructions apply to all projects unless a repository-level
 ### Development Branch Workflow
 
 - For GitHub projects, read and follow the Development Branch Workflow section
-  in `open-source-orchestrator/SKILL.md` before an authorized commit from
+  in `oss-orchestrator/SKILL.md` before an authorized commit from
   `master`. This reference also applies outside open-source issue and PR work;
   in that case, read only that section without activating the management workflow.
 

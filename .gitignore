@@ -188,14 +188,14 @@ $RECYCLE.BIN/
 !/AGENTS.md
 !/skills/
 /skills/*
-!/skills/open-source-orchestrator/
-/skills/open-source-orchestrator/*
-!/skills/open-source-orchestrator/SKILL.md
-!/skills/open-source-orchestrator/references/
-/skills/open-source-orchestrator/references/*
-!/skills/open-source-orchestrator/references/herdr.md
-!/skills/open-source-orchestrator/references/review-process.md
-!/skills/open-source-orchestrator/references/pytorch-review.md
+!/skills/oss-orchestrator/
+/skills/oss-orchestrator/*
+!/skills/oss-orchestrator/SKILL.md
+!/skills/oss-orchestrator/references/
+/skills/oss-orchestrator/references/*
+!/skills/oss-orchestrator/references/herdr.md
+!/skills/oss-orchestrator/references/review-process.md
+!/skills/oss-orchestrator/references/pytorch-review.md
 
 !/skills/character-relationship-map/
 /skills/character-relationship-map/*
