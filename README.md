@@ -61,39 +61,50 @@ open-source issue and PR work. IDE extensions and other hosts do not activate
 it automatically. The separately referenced Development Branch Workflow keeps
 its existing scope.
 
-Use GPT-6 Astra with high reasoning effort as the initial manager evaluation
-baseline. This is a migration starting point, not a proven optimal setting.
-Before describing the manager policy as optimized, compare Astra/high with
-Astra/medium on comparable work. Medium is a candidate for planning,
-decomposition, and delegation that need judgment; high remains appropriate for
-complex agentic work. Choose for requirement coverage first, then compare cost
-and latency among settings that meet the quality bar. Keep handoffs concise and
-avoid repeatedly loading full logs.
+Use GPT-6.1 Sol/medium at Standard speed as the provisional general manager
+configuration. Optimize total included subscription allowance consumption or
+billed credits per successfully verified task, including manager, workers,
+automatic review, retries, rework, and final verification. This policy is not a
+claim of measured savings. Raw tokens and API-price estimates are separate
+metrics, and credit rates do not directly determine included subscription usage.
 
-Evaluate the migration in stages: first compare Sol/high with Astra/high, then
-compare Astra/high with Astra/medium. Within each comparison, hold the task
-revision, inputs, instructions, tools, and acceptance criteria constant. Record
-requirement coverage, decomposition quality, evidence judgment, unnecessary
-pauses, rework, elapsed time, and total manager, worker, and automatic-review
-usage and workflow cost. Tune prompts in separate trials only when an observed
-problem warrants a change, so prompt effects are not attributed to the model or
-effort setting.
-Treat API-price calculations as estimates separate from Codex subscription
-consumption. These repository instructions define the evaluation policy; they
-do not claim that comparative trials have already been performed.
+Use Luna for bounded, checkable work and Sol/medium for general implementation,
+investigation, and review. Evaluate GPT-6.1 Terra for scoped fixes. Reserve Astra
+for demanding judgment and high-risk semantic review; raise capability or effort
+when complexity or observed quality warrants it. Standard is the speed default;
+Fast/Ultrafast are explicit latency tradeoffs whose current usage multipliers
+must be checked before quoting them. Small tasks may run in one session; scale
+delegation to useful parallelism and required independent verification.
 
-The manager may select stronger settings proactively when known complexity or
-risk supports that choice; repeated failures are not a prerequisite. Use
-`xhigh` only when evaluation shows a clear benefit for the task class, and
-evaluate `max` against `xhigh` before adopting it. Keep cheaper worker roles for
-bounded work and preserve task-appropriate worker selection.
+The skill defines representative comparison tasks and quality gates before
+trials. Compare models at the same supported effort with fixed inputs, revision,
+tools, instructions, environment, speed, and acceptance criteria; then vary
+effort with the model fixed. Evaluate delegation and prompt changes separately. Record
+actual runtime settings, verification, retries/rework, elapsed time, and the
+usage measurement source. Disclose missing telemetry or shared-activity
+attribution gaps. Compare repeated representative tasks before claiming an
+optimized default; do not invent benchmark or savings claims.
 
-High-risk PRs receive proactive semantic/contract review with Astra at high
-reasoning or above, a separate independent counterexample review, and focused
-execution checks. The manager uses the Astra/high initial evaluation baseline;
-the semantic review remains a separate worker assignment. Reviewers must report
-exact revisions, coverage, evidence, and missing verification; material gaps
-prevent an unqualified approval. See the skill's High-Risk PR Review procedure.
+This replaces the Astra/high migration baseline and fixed staged comparison in
+[issue #10](https://github.com/ruddyscent/codex-config/issues/10), superseded by
+[issue #21](https://github.com/ruddyscent/codex-config/issues/21). Quality gates,
+independent review, and authorization boundaries remain intact. The skill name
+and paths remain unchanged here; their rename is tracked separately in
+[issue #20](https://github.com/ruddyscent/codex-config/issues/20).
+
+High-risk PRs still receive a separate Astra semantic/contract reviewer at high
+reasoning or above, an independent counterexample reviewer, and focused execution
+checks. The manager's configuration follows the coordination task rather than
+a blanket Astra/high requirement. Reviewers must report exact revisions,
+coverage, evidence, and missing verification; material gaps prevent an
+unqualified approval. Use `xhigh` only with evaluation evidence and compare
+`max` with `xhigh` before adoption.
+
+Policy sources, reviewed November 7, 2026:
+[OpenAI model selection](https://developers.openai.com/api/docs/guides/model-selection),
+[Codex model guidance](https://learn.chatgpt.com/docs/models), and
+[usage and pricing](https://learn.chatgpt.com/docs/pricing). Recheck current
+availability and product-specific usage rules when evaluating the policy.
 
 Each task has one active manager. The initial session may manage or hand off to
 an appropriately configured fresh session. Transfer goals, constraints, approval

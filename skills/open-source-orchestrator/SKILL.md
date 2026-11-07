@@ -1,6 +1,6 @@
 ---
 name: open-source-orchestrator
-description: Coordinate open-source issue handling and pull request reviews in Codex CLI or the Codex desktop app through delegated workers, isolated worktrees, and task-appropriate model settings. Use for the primary management session on those tasks; not for general coding, workflow advice, or editing this skill. Assigned workers execute their tasks directly without recursively applying management requirements.
+description: Coordinate open-source issue handling and pull request reviews in Codex CLI or the Codex desktop app through proportional delegation, isolated worktrees, and task-appropriate model settings. Use for the primary management session on those tasks; not for general coding, workflow advice, or editing this skill. Assigned workers execute their tasks directly without recursively applying management requirements.
 ---
 
 # Open-Source Issue and PR Orchestration
@@ -14,7 +14,7 @@ description: Coordinate open-source issue handling and pull request reviews in C
 - This host restriction applies to orchestration, not to a separately referenced
   Development Branch Workflow section. Reading only that section
   must not activate the manager, delegation, or model-selection requirements.
-- The management role, mandatory delegation, and default model/effort
+- The management role, delegation policy, and default model/effort
   requirements apply only to the designated management session. Worker agents
   must perform their assigned work directly using their assigned settings;
   they must not recursively create management sessions or delegate again
@@ -28,53 +28,62 @@ description: Coordinate open-source issue handling and pull request reviews in C
   settings. Then stop dispatching from the previous manager and leave it idle
   or end it. Do not interrupt active workers or expand authorization on handoff.
   If the recipient is not ready, retain the existing manager as the sole owner.
-- Configure the designated management session before substantive work.
-  Use GPT-6 Astra (`gpt-6-astra`) with `high` reasoning effort as the initial
-  evaluation baseline. This migration baseline is not a proven optimal default.
-  Verify actual runtime settings before substantive work; instructions alone do
-  not change a running session. If unavailable, explain the limitation and
-  required action instead of silently substituting another model or effort level.
-- Use current official OpenAI guidance and runtime availability when periodically
-  reassessing the default or selecting an exception. Do not reselect the manager
-  model on every turn or automatically choose the strongest model and effort.
-- Select the manager model and effort for accuracy and requirement coverage
-  first, then optimize cost and latency among settings that meet the quality bar.
-  `medium` is appropriate to evaluate for planning, decomposition, delegation,
-  and other work requiring judgment; use `high` for complex agentic work.
-  Known complexity or risk may justify a stronger setting proactively without
-  waiting for repeated failures. Use `xhigh` only when evaluation shows a clear
-  benefit for the relevant task class, and compare `max` with `xhigh` before
-  adopting it. Record the evidence, reason, and scope for these choices rather
-  than automatically selecting maximum effort.
-- Delegate difficult technical judgments to a suitably capable worker when that
-  is the most efficient way to obtain reliable evidence. Record observed quality
-  gaps and revise assignments or settings when results are insufficient. Return
-  from a scoped exception when its reason no longer applies.
-- Evaluate the manager migration in two stages. First compare Sol/high with
-  Astra/high. Then compare Astra/high with Astra/medium before claiming that an
-  optimized manager default has been established. Hold the task revision,
-  inputs, instructions, available tools, and acceptance criteria constant within
-  each comparison. Change prompts only in separate trials addressing observed
-  problems, so prompt tuning is not confounded with model or effort selection.
-  Do not imply that these trials occurred unless their evidence is available.
-- Define the quality bar before each comparison. Assess requirement coverage,
-  decomposition quality, evidence judgment, unnecessary pauses, rework, elapsed
-  time, and total workflow usage across manager, workers, and automatic review.
-  Keep API-price estimates separate from actual Codex subscription consumption.
-  Preserve task-appropriate cheaper worker roles and compare total workflow cost,
-  not manager usage alone.
+- Use GPT-6.1 Sol (`gpt-6.1-sol`) with `medium` reasoning effort and Standard
+  speed as the provisional general manager configuration. This is a candidate
+  for lower usage, not a benchmark-proven optimum. Verify the actual model,
+  effort, and speed before substantive work; portable instructions do not
+  change a running session. If unavailable, disclose the limitation and select
+  an available configuration that meets the task's quality requirements,
+  recording the reason rather than silently claiming the preferred settings.
+- Optimize total included subscription allowance consumption or billed credits
+  per successfully verified task, subject to the same acceptance criteria.
+  Include manager, workers, automatic review, retries, rework, and final
+  verification. Raw token counts and API-price estimates are separate metrics;
+  published credit rates do not directly establish subscription usage ratios.
+- Reassess defaults periodically using current official OpenAI guidance and
+  runtime availability, not on every turn. Standard is the default speed;
+  choose Fast or Ultrafast only for a justified latency tradeoff and verify
+  current product-specific usage multipliers before quoting them.
+- Use Sol/medium for general implementation, investigation, and review. Use
+  Luna for bounded searches, extraction, classification, summaries, or prescribed
+  verification with checkable results. Evaluate GPT-6.1 Terra against Sol for
+  scoped, readily verifiable fixes. Choose effort for the task; a cheaper model
+  or lower effort that causes rework may consume more overall.
+- Reserve Astra for demanding judgment, difficult diagnosis, conflicting
+  evidence, and high-risk semantic review. Raise effort or model capability
+  when known complexity or observed quality gaps warrant it; repeated failures
+  are not a prerequisite. Use `xhigh` only with evaluation evidence, and compare
+  `max` with `xhigh` before adopting it. Record the reason and scope of an
+  exception, and return to the general configuration when it no longer applies.
+- Before comparative trials, define representative tasks and quality gates:
+  a bounded configuration fix must preserve unrelated settings and pass its
+  focused checks; a multi-file bug fix must satisfy acceptance criteria and
+  regression tests; a high-risk PR review must cover contracts, counterexamples,
+  required independent review, and relevant execution checks. Freeze the task
+  revision, inputs, tools, instructions, environment, speed, and acceptance
+  criteria within a comparison. Compare models at the same supported effort first,
+  then vary effort with the model fixed. Evaluate delegation and prompt changes
+  separately rather than attributing their effects to the model.
+- For each trial, record actual runtime model, effort, speed, source revision,
+  environment, verification results, retries/rework, elapsed time, and usage
+  measurement source. Use attributable subscription-usage deltas or billed
+  credits; disclose shared activity, missing telemetry, and unsupported settings
+  instead of inventing savings. Compare repeated representative tasks against
+  the same quality bar before claiming an optimized default. Report policy
+  changes, live installation, completed trials, and unavailable checks separately.
 - Create a dedicated Git worktree for the issue or PR before substantive
   repository work, using the relevant base or PR revision. Reuse that task's
   worktree on follow-up turns. Preserve the original checkout and user changes,
   and follow the applicable development branch and commit workflow below.
 - For PR reviews, record the exact base and head commit SHAs and review that
   revision pair. Before reporting completion, check whether either revision
-  has changed. If so, delegate review of the affected changes and rerun relevant
-  verification, stating which revision pair the final findings cover. If the
+  has changed. If so, review the affected changes with the required independence
+  and rerun relevant verification, stating which revision pair the final
+  findings cover. If the
   latest PR state cannot be checked, disclose that limitation.
 - For PR reviews, read [the common review process](references/review-process.md)
-  and delegate its context, consolidation, and fact-checking steps. For PyTorch
-  reviews only, also read [PyTorch review context](references/pytorch-review.md).
+  and scale its context, consolidation, and fact-checking work to risk. For
+  PyTorch reviews only, also read [PyTorch review context](references/pytorch-review.md).
   These references supplement the high-risk requirements below.
 - Before assigning PR reviewers, classify risk from the changed semantics and
   affected consumers, not patch size or the author's stated fix alone. Apply
@@ -83,10 +92,12 @@ description: Coordinate open-source issue handling and pull request reviews in C
   execution backends where a small change can silently alter results. Do not
   wait for a discovered failure to trigger stronger review.
 - The management session owns scoping, decomposition, delegation, coordination,
-  assessment of returned evidence, and the final response. Delegate detailed
-  investigation, implementation, review, and test execution to worker agents
-  rather than doing that work directly or duplicating their investigations.
-  Lightweight setup and inspection needed to delegate effectively are allowed.
+  assessment of returned evidence, and the final response. Handle small,
+  bounded tasks in one session when delegation adds no useful independence or
+  parallelism. Delegate substantial investigation, implementation, review, or
+  testing when it reduces total work or provides required independent evidence.
+  Do not duplicate a worker's investigation. High-risk review independence and
+  separate verification of reported defect claims remain required.
 - Create concrete, bounded subtasks with the necessary context, worktree path,
   ownership, expected output, and verification requirements. Run independent
   subtasks in parallel within runtime limits when doing so materially reduces
@@ -94,7 +105,7 @@ description: Coordinate open-source issue handling and pull request reviews in C
   tasks. Bundle small related tasks to reduce context-transfer overhead and
   duplicate investigation. Avoid parallel work solely because it is possible.
   Avoid concurrent writes to the same files, using separate worktrees for workers
-  when isolation is needed. Delegate integration and conflict resolution.
+  when isolation is needed. Assign integration and conflict resolution explicitly.
 - In Codex CLI running inside herdr, read and follow
   [herdr pane operations](references/herdr.md) before assigning workers.
   Load that reference only for that host combination.
@@ -112,7 +123,8 @@ description: Coordinate open-source issue handling and pull request reviews in C
   results, changes, and remaining decisions or risks. Keep full logs and detailed
   investigation in task artifacts; retrieve only the excerpts needed to assess
   a claim. Do not omit failures or uncertainty merely to shorten a handoff.
-  Assess this evidence before reporting completion and delegate remaining gaps.
+  Assess this evidence before reporting completion and address remaining gaps
+  with the required independence.
 - Keep manager context focused on scope, decisions, ownership, and verification.
   Avoid repeatedly loading full logs or duplicating worker investigations.
   For unrelated work, start a fresh session with a concise handoff; preserve
@@ -316,7 +328,8 @@ description: Coordinate open-source issue handling and pull request reviews in C
 
 ## High-Risk PR Review
 
-- Keep the manager on the Astra/high initial evaluation baseline. Assign a
+- Select the manager configuration for the coordination task; high-risk review
+  does not by itself require every management turn to use Astra/high. Assign a
   separate semantic and contract reviewer using GPT-6 Astra (`gpt-6-astra`)
   with at least `high` reasoning. Choose `xhigh` only when evaluation evidence
   shows a clear benefit for this review class, and evaluate `max` against
