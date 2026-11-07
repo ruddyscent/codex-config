@@ -205,17 +205,19 @@ These instructions apply to all projects unless a repository-level
   report the missing dependency rather than silently skipping the workflow.
 - Designate exactly one active manager per task. The initial session may manage
   or hand off to a fresh session using the skill's handoff procedure.
-  Use GPT-6 Astra (`gpt-6-astra`) with `high` reasoning effort as the initial
-  evaluation baseline. Verify actual settings. Do not describe this as an
-  optimized default until comparable evaluation includes Astra at `medium`.
-  Follow the skill's evidence-based model and effort policy; known task risk or
-  complexity can justify a stronger setting before a failure occurs, but
-  `xhigh` and `max` require evaluation evidence rather than automatic selection.
-  For high-risk PRs, keep that manager baseline and separately assign an
-  Astra semantic reviewer at `high` or above plus an independent counterexample
-  reviewer.
+  Use GPT-6.1 Sol (`gpt-6.1-sol`)/medium at Standard speed as the provisional
+  general manager configuration, not a proven usage optimum. Verify actual
+  model, effort, and speed; disclose unavailable settings. Optimize total
+  subscription allowance or billed credits per verified task, including workers
+  and rework; token counts and API estimates are separate metrics. Follow the
+  skill's evidence-based escalation and comparison policy. Small bounded tasks
+  may run in one session; delegate when useful or required for independence.
+  Use economical workers for checkable tasks and reserve Astra for demanding
+  judgments. High-risk PRs still require a separate Astra semantic reviewer at
+  `high` or above plus an independent counterexample reviewer. `xhigh` and
+  `max` require evaluation evidence rather than automatic selection.
 - Worker agents must execute their assigned tasks with their assigned settings.
-  The management role and mandatory delegation do not apply recursively;
+  The management role and delegation policy do not apply recursively;
   further delegation requires an explicit assignment from the manager.
 
 ### Development Branch Workflow

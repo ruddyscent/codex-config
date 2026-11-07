@@ -1,8 +1,10 @@
 # Evidence-Based PR Review
 
-Read this reference for PR reviews. The manager assigns the steps below to
-workers; workers do not recursively delegate. Use the skill's stronger staffing
-and independence requirements for high-risk changes.
+Read this reference for PR reviews. A small, bounded review may perform context,
+discovery, and consolidation in one session. Delegate when parallel coverage or
+independent evidence is useful or required; workers do not recursively delegate.
+Use the skill's stronger staffing and independence requirements for high-risk
+changes, and retain separate verification of reported defect claims below.
 
 ## Context and coverage
 
